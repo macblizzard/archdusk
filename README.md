@@ -1,2 +1,2 @@
-# archdusk
-## My Arch Linux setup with Dusk WM, Dmenu nd ST
+# Archdusk
+## My Arch Linux setup with Dusk WM, Dmenu and ST
