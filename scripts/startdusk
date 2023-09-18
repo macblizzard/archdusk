@@ -1,0 +1,7 @@
+#!/bin/sh
+
+xrandr -s 1440x900
+$HOME/.local/bin/newlook &
+#$HOME/.local/bin/dwmbar &
+picom &
+dusk

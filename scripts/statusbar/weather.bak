@@ -1,0 +1,6 @@
+#!/bin/sh
+COND="$(curl -s wttr.in | sed -n 3p | awk '{print $5}')"
+TEMP="$(curl -s wttr.in | sed -n 4p | awk '{print $4$5}')"
+
+echo "${COND} ${TEMP}"
+

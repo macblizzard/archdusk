@@ -1,0 +1,14 @@
+#! /bin/sh
+
+wall=$(find ~/pix/ -type f -name "*.jpg" -o -name "*.png" | shuf -n 1)
+
+# add this as background wallpaper
+xwallpaper --zoom $wall
+
+# generate color scheme
+wal -c 
+wal -i $wall
+
+# reload xrdb
+xdotool key super+shift+e
+
