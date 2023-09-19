@@ -31,7 +31,7 @@ source ~/.zprofile
 echo "Setting up PARU and installing AUR packages"
 git clone https://aur.archlinux.org/paru.git
 cd paru && makepkg -si
-paru --noconfirm --needed -S python-pywalfox themix-full-git xorgxrdp-glamor sddm-theme-tokyo-night sddm-theme-sugar-candy-git
+paru --noconfirm --needed -S python-pywalfox themix-gui-git themix-theme-oomox-git xorgxrdp-glamor sddm-theme-tokyo-night sddm-theme-sugar-candy-git
 
 echo "Enabling services"
 sudo systemctl enable sshd
