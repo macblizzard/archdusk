@@ -11,8 +11,10 @@ mkdir -p ~/.local/src
 mkdir -p ~/.local/bin
 mkdir ~/pix
 
-echo "Copying source files"
-cp -r build/* ~/.local/src/
+echo "Cloning source files"
+git clone https://gizhub.com/macblizzard/dusk ~/.local/src/dusk
+git clone https://gizhub.com/macblizzard/dmenu ~/.local/src/dmenu
+git clone https://gizhub.com/macblizzard/st ~/.local/src/st
 
 echo "Copying scripts"
 cp -r scripts/* ~/.local/bin/
