@@ -57,6 +57,10 @@ cd ~/.local/src/st/ && sudo make clean install
 
 echo "Making executables"
 sudo chmod +x ~/.local/bin/*
+
+echo "Changing shell"
+chsh -s /usr/bin/zsh
+
 echo "Setup is complete, please reboot the system and type startx"
 echo "To get pywal colors for gtk apps…"
 echo "Open themix-gui and go to plugins - Xresources - xresources-reverse and click on export theme and export icons"
