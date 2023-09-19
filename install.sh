@@ -25,6 +25,7 @@ cp -r pix/* ~/pix/
 
 echo "Copying dotfiles and setting up symlinks"
 cp -r dotfiles/* ~/.config/
+rm ~/.zshrc
 ln -s ~/.config/zsh/.zshrc ~/.zshrc
 ln -s ~/.config/zsh/.zshenv ~/.zshenv
 ln -s ~/.config/zsh/.zprofile ~/.zprofile
