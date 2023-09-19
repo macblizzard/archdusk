@@ -17,6 +17,9 @@ cp -r build/* ~/.local/src/
 echo "Copying scripts"
 cp -r scripts/* ~/.local/bin/
 
+echo "Copying images"
+cp -r pix/* ~/pix/
+
 echo "Copying dotfiles and setting up symlinks"
 cp -r dotfiles/* ~/.config/
 ln -s .config/zsh/.zshrc ~/.zshrc
