@@ -15,7 +15,7 @@ echo "Copying source files"
 cp -r build/* ~/.local/src/
 
 echo "Copying dotfiles and setting up symlinks"
-cp dotfiles/* ~/.config/
+cp -r dotfiles/* ~/.config/
 ln -s .config/zsh/.zshrc ~/.zshrc
 ln -s .config/zsh/.zshenv ~/.zshenv
 ln -s .config/zsh/.zprofile ~/.zprofile
