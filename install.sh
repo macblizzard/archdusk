@@ -4,7 +4,7 @@ echo "Installing packages"
 sudo pacman --noconfirm --needed -S qemu-guest-agent libxft libxinerama git nano vim openssh xorg-xrandr xorg-xsetroot picom wget unzip less htop neofetch xwallpaper feh qutebrowser firefox ranger ueberzug xdotool tmux mpv sxhkd ttf-jetbrains-mono ttf-joypixels ttf-font-awesome exa bat fd xh sd dog zellij python-pywal lxappearance rofi network-manager-applet zsh zsh-syntax-highlighting sddm
 
 echo "Installing Oh-my-zsh"
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" --unattended
 
 echo "Creating directories"
 mkdir -p ~/.local/src
@@ -23,9 +23,6 @@ ln -s .config/x11/.xinitrc ~/.xinitrc
 ln -s .config/x11/.Xresources ~/.Xresources
 
 sudo cp .config/x11/Xwrapper.config /etc/X11/Xwrapper.config
-
-echo "Changing shell"
-chsh -s /usr/bin/zsh
 
 source ~/.zshenv
 source ~/.zshrc
