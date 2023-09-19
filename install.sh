@@ -54,7 +54,7 @@ echo "Making executables"
 sudo chmod +x ~/.local/bin/*
 echo "Setup is complete, please reboot the system and type startx"
 echo "To get pywal colors for gtk apps…"
-echo "Go to plugins - Xresources - xresources-reverse and click on export theme and export icons"
+echo "Open themix-gui and go to plugins - Xresources - xresources-reverse and click on export theme and export icons"
 echo "Open lxappearance and under Widget select oomox-xresources-reverse and apply"
 echo "Then go to icon theme tab and select oomox-resources-reverse and apply"
 
