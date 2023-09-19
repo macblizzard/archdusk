@@ -4,7 +4,7 @@ echo "Installing packages"
 sudo pacman --noconfirm --needed -S qemu-guest-agent libxft libxinerama git nano vim openssh xorg-xrandr xorg-xsetroot picom wget unzip less htop neofetch xwallpaper feh qutebrowser firefox ranger ueberzug xdotool tmux mpv sxhkd ttf-jetbrains-mono ttf-joypixels ttf-font-awesome exa bat fd xh sd dog zellij python-pywal lxappearance rofi network-manager-applet zsh zsh-syntax-highlighting sddm
 
 echo "Installing Oh-my-zsh"
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" --unattended
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" --unattended --skip-chsh
 
 echo "Creating directories"
 mkdir -p ~/.local/src
