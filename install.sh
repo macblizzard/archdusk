@@ -24,6 +24,9 @@ ln -s .config/x11/.Xresources ~/.Xresources
 
 sudo cp .config/x11/Xwrapper.config /etc/X11/Xwrapper.config
 
+echo "Changing shell"
+chsh -s /usr/bin/zsh
+
 source ~/.zshenv
 source ~/.zshrc
 source ~/.zprofile
