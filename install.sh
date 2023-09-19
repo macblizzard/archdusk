@@ -1,7 +1,12 @@
 #!/bin/bash
 
+echo "Setting up SSH"
+sudo pacman --noconfirm --needed -S openssh
+sudo systemctl enable sshd
+sudo systemctl start sshd
+
 echo "Installing packages"
-sudo pacman --noconfirm --needed -S qemu-guest-agent libxft libxinerama git yajl nano vim openssh xorg-xrandr xorg-xsetroot picom wget unzip less htop neofetch xwallpaper feh qutebrowser firefox ranger ueberzug xdotool tmux mpv sxhkd ttf-jetbrains-mono ttf-joypixels ttf-font-awesome exa bat fd xh sd dog zellij python-pywal lxappearance rofi network-manager-applet zsh zsh-syntax-highlighting sddm cargo
+sudo pacman --noconfirm --needed -S qemu-guest-agent libxft libxinerama git yajl nano vim xorg-xrandr xorg-xsetroot picom wget unzip less htop neofetch xwallpaper feh qutebrowser firefox ranger ueberzug xdotool tmux mpv sxhkd ttf-jetbrains-mono ttf-joypixels ttf-font-awesome exa bat fd xh sd dog zellij python-pywal lxappearance rofi network-manager-applet zsh zsh-syntax-highlighting sddm cargo
 
 echo "Installing Oh-my-zsh"
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
@@ -43,7 +48,6 @@ cd paru && makepkg -si
 paru --noconfirm --needed -S python-pywalfox themix-gui-git themix-theme-oomox-git xorgxrdp-glamor sddm-theme-tokyo-night sddm-theme-sugar-candy-git
 
 echo "Enabling services"
-sudo systemctl enable sshd
 sudo systemctl enable xrdp
 
 echo "Building sources"
