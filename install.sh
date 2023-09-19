@@ -13,9 +13,9 @@ mkdir ~/.config
 mkdir ~/pix
 
 echo "Cloning source files"
-git clone https://gizhub.com/macblizzard/dusk ~/.local/src/dusk
-git clone https://gizhub.com/macblizzard/dmenu ~/.local/src/dmenu
-git clone https://gizhub.com/macblizzard/st ~/.local/src/st
+git clone https://github.com/macblizzard/dusk ~/.local/src/dusk
+git clone https://github.com/macblizzard/dmenu ~/.local/src/dmenu
+git clone https://github.com/macblizzard/st ~/.local/src/st
 
 echo "Copying scripts"
 cp -r scripts/* ~/.local/bin/
