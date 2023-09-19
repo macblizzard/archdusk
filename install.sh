@@ -9,6 +9,7 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/too
 echo "Creating directories"
 mkdir -p ~/.local/src
 mkdir -p ~/.local/bin
+mkdir ~/.config
 mkdir ~/pix
 
 echo "Cloning source files"
@@ -24,13 +25,12 @@ cp -r pix/* ~/pix/
 
 echo "Copying dotfiles and setting up symlinks"
 cp -r dotfiles/* ~/.config/
-ln -s .config/zsh/.zshrc ~/.zshrc
-ln -s .config/zsh/.zshenv ~/.zshenv
-ln -s .config/zsh/.zprofile ~/.zprofile
-ln -s .config/x11/.xinitrc ~/.xinitrc
-ln -s .config/x11/.Xresources ~/.Xresources
-
-sudo cp .config/x11/Xwrapper.config /etc/X11/Xwrapper.config
+ln -s ~/.config/zsh/.zshrc ~/.zshrc
+ln -s ~/.config/zsh/.zshenv ~/.zshenv
+ln -s ~/.config/zsh/.zprofile ~/.zprofile
+ln -s ~/.config/x11/.xinitrc ~/.xinitrc
+ln -s ~/.config/x11/.Xresources ~/.Xresources
+sudo cp ~/.config/x11/Xwrapper.config /etc/X11/Xwrapper.config
 
 source ~/.zshenv
 source ~/.zshrc
