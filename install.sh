@@ -3,7 +3,7 @@
 read -s -p "Enter Password for sudo: " sudoPW
 
 echo "Setting up SSH"
-echo $sudoPW | sudo pacman --noconfirm --needed -S openssh
+echo $sudoPW | sudo -S pacman --noconfirm --needed -S openssh
 sudo systemctl enable sshd
 sudo systemctl start sshd
 
