@@ -1,12 +1,20 @@
 #!/bin/bash
 
+read -s -p "Enter Password for sudo: " sudoPW
+
 echo "Setting up SSH"
-sudo pacman --noconfirm --needed -S openssh
+echo $sudoPW | -S sudo pacman --noconfirm --needed -S openssh
 sudo systemctl enable sshd
 sudo systemctl start sshd
 
 echo "Installing packages"
-sudo pacman --noconfirm --needed -S qemu-guest-agent libxft libxinerama git yajl nano vim xorg-xrandr xorg-xsetroot picom wget unzip less htop neofetch xwallpaper feh qutebrowser firefox ranger ueberzug xdotool tmux mpv sxhkd ttf-jetbrains-mono ttf-joypixels ttf-font-awesome exa bat fd xh sd dog zellij python-pywal lxappearance rofi network-manager-applet zsh zsh-syntax-highlighting sddm cargo
+sudo pacman --noconfirm --needed -S qemu-guest-agent libxft libxinerama git yajl nano vim xorg-xrandr xorg-xsetroot picom wget unzip less htop neofetch xwallpaper feh qutebrowser firefox ranger ueberzug xdotool tmux mpv sxhkd ttf-jetbrains-mono ttf-joypixels ttf-font-awesome exa bat fd xh sd dog zellij python-pywal lxappearance rofi network-manager-applet zsh zsh-syntax-highlighting sddm cargo go
+
+echo "Setting up YAY and installing AUR packages"
+git clone https://aur.archlinux.org/yay.git
+cd yay
+echo $sudoPW | makepkg -si --noconfirm
+yay -S --noconfirm python-pywalfox themix-gui-git themix-theme-oomox-git xorgxrdp-glamor sddm-theme-tokyo-night sddm-theme-sugar-candy-git
 
 echo "Installing Oh-my-zsh"
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
@@ -42,11 +50,6 @@ source ~/.zshenv
 source ~/.zshrc
 source ~/.zprofile
 
-echo "Setting up PARU and installing AUR packages"
-git clone https://aur.archlinux.org/paru.git
-cd paru && makepkg -si --noconfirm
-paru --noconfirm --needed -S python-pywalfox themix-gui-git themix-theme-oomox-git xorgxrdp-glamor sddm-theme-tokyo-night sddm-theme-sugar-candy-git
-
 echo "Enabling services"
 sudo systemctl enable xrdp
 
@@ -58,13 +61,8 @@ cd ~/.local/src/st/ && sudo make clean install
 echo "Making executables"
 sudo chmod +x ~/.local/bin/*
 
-echo "Changing shell"
-chsh -s /usr/bin/zsh
-
 echo "Setup is complete, please reboot the system and type startx"
 echo "To get pywal colors for gtk apps…"
 echo "Open themix-gui and go to plugins - Xresources - xresources-reverse and click on export theme and export icons"
 echo "Open lxappearance and under Widget select oomox-xresources-reverse and apply"
 echo "Then go to icon theme tab and select oomox-resources-reverse and apply"
-
-
