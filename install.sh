@@ -3,18 +3,12 @@
 read -s -p "Enter Password for sudo: " sudoPW
 
 echo "Setting up SSH"
-echo $sudoPW | -S sudo pacman --noconfirm --needed -S openssh
+echo $sudoPW | sudo pacman --noconfirm --needed -S openssh
 sudo systemctl enable sshd
 sudo systemctl start sshd
 
 echo "Installing packages"
 sudo pacman --noconfirm --needed -S qemu-guest-agent libxft libxinerama git yajl nano vim xorg-xrandr xorg-xsetroot picom wget unzip less htop neofetch xwallpaper feh qutebrowser firefox ranger ueberzug xdotool tmux mpv sxhkd ttf-jetbrains-mono ttf-joypixels ttf-font-awesome exa bat fd xh sd dog zellij python-pywal lxappearance rofi network-manager-applet zsh zsh-syntax-highlighting sddm cargo go
-
-echo "Setting up YAY and installing AUR packages"
-git clone https://aur.archlinux.org/yay.git
-cd yay
-echo $sudoPW | makepkg -si --noconfirm
-yay -S --noconfirm python-pywalfox themix-gui-git themix-theme-oomox-git xorgxrdp-glamor sddm-theme-tokyo-night sddm-theme-sugar-candy-git
 
 echo "Installing Oh-my-zsh"
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
@@ -36,8 +30,12 @@ cp -r scripts/* ~/.local/bin/
 echo "Copying images"
 cp -r pix/* ~/pix/
 
+echo "Changing shell"
+echo $sudoPW | chsh -s /usr/bin/zsh
+
 echo "Copying dotfiles and setting up symlinks"
 cp -r dotfiles/* ~/.config/
+git clone https://github.com/alexanderjeurissen/ranger_devicons ~/.config/ranger/plugins/ranger_devicons
 rm ~/.zshrc
 ln -s ~/.config/zsh/.zshrc ~/.zshrc
 ln -s ~/.config/zsh/.zshenv ~/.zshenv
@@ -49,6 +47,12 @@ sudo cp ~/.config/x11/Xwrapper.config /etc/X11/Xwrapper.config
 source ~/.zshenv
 source ~/.zshrc
 source ~/.zprofile
+
+echo "Setting up YAY and installing AUR packages"
+git clone https://aur.archlinux.org/yay.git
+cd yay
+echo $sudoPW | makepkg -si --noconfirm
+yay -S --noconfirm python-pywalfox themix-gui-git themix-theme-oomox-git xorgxrdp-glamor sddm-theme-tokyo-night sddm-theme-sugar-candy-git ttf-hack-nerd-font
 
 echo "Enabling services"
 sudo systemctl enable xrdp
